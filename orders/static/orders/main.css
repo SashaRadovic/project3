@@ -1,0 +1,369 @@
+html, body, .container {height:100%;}
+body {
+    background: url("https://media.gettyimages.com/photos/rustic-traditional-italian-food-background-with-empty-copy-design-on-picture-id670702532?b=1&k=6&m=670702532&s=612x612&w=0&h=-rxjCLMChxTe2L4drkcPyBNLFXlhPbyFdxegNTbQuCM=");
+    color: #333333;
+    margin-top: 5rem;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Nanum Brush Script', cursive;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  .bg-steel {
+    /*background-image:url("http://thelillyawards.org/media/2013/10/Lilly-Awards-parchment-background.jpg");
+    background-repeat:repeat;
+    background-size:cover;
+    background-position: center;*/
+    background-color: transparent;
+    box-shadow:  0 0 1em  1em rgba(236, 229, 229, 0.493) inset;
+  }
+  .navbar-dark .navbar-brand {
+    color: #f78b7d;
+}
+  .site-header .navbar-nav .nav-link {
+    color: #f78b7d;
+    opacity:0.9;
+    font-size: 2em;
+    font-weight: bolder;;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #46d164;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .content-section {
+    background: #e9d7c0;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .article-title {
+    color: #444444;
+  }
+  
+  a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
+  }
+  
+  .article-content {
+    white-space: pre-line;
+  }
+  
+  .article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
+  
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+  }
+  
+  .article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  
+  .account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
+  #menuWrapper1 {
+    display: flex;
+    
+    justify-content: flex-start;
+  }
+  .menuList{
+    background-color: lightgrey;
+    width:300px;
+    height:600px;
+    padding: 1rem;
+    border-block-end-style: double;
+    margin-left: 1rem;
+  }
+  .menuListLocal {
+    margin-bottom: 1rem;
+  }
+  th, td {
+    padding-right: 10px;
+  }
+  .col-sm{
+    width:20%;
+  }
+  .wrapper{
+    width: 39vw;
+	height: 39vw;	
+	min-width:270px;
+	min-height:270px;
+	outline:none;
+	position :relative;
+	/*top:30%;*/
+	/*left:30%;*/
+	border-radius:100%;
+	margin:auto;
+	opacity:1;
+	display:flex;
+    
+  }
+  .col-md-5, .col-md-3, .col-md-4, .col-md-12 {
+    min-height:20vw;
+    margin-bottom:5vw;
+    }
+    .containerAux{
+      display:inline-block;
+      width: 38vw;
+      height: 38vw;	
+      min-width:250px;
+      min-height:250px;
+      align:center;
+      float:middle;
+      outline:none;
+      position:relative;
+      background-image:url("https://i.dailymail.co.uk/i/pix/2013/08/09/article-2387586-1B363382000005DC-306_634x546.jpg");
+      background-position:  70% ;
+      background-size:120%;
+      margin:auto;
+      border-radius:100%;
+      font-size:0;
+      opacity:1;
+    }
+    
+    .aux{
+      width: 38vw;
+      height: 38vw;	
+      min-width:250px;
+      min-height:250px;
+      align:center;
+      float:middle;
+      outline:none;
+      position:relative;
+      margin:0;
+      border-radius:100%;
+      font-size:0;
+      opacity:1;
+    }
+  
+
+
+
+  .child {
+    width: 50%;  /*200px;*/
+    height:50%; /*200px;*/
+    min-width:117.5px;
+	  min-height:117.5px;
+    background-image:url("https://media.tenor.com/images/39821b4ff17f5333b9d1c46cac273e6e/tenor.gif");
+    background-repeat:no-repeat;
+    background-size:200% 200%;
+    background-origin: border-box;
+	  background-clip: content-box, border-box;
+    display:inline-block;
+    vertical-align:middle;
+    position: relative;
+    align-content:middle;
+    
+  }
+  .child p {
+  /*position:relative;*/
+  display:inline-block;
+  padding: 15% 10% 10% 25%;
+  line-height: auto;
+  vertical-align:middle;
+  margin-block-start: 0;
+  font-size:2vw;
+  color: beige;
+  
+  }
+  .menu{
+    display:none;
+    vertical-align:middle;
+    margin-left:20%;
+    
+  }
+  
+  .leftUpper, .leftBottom, .rightUpper, .rightBottom{
+    background-image:url("http://thelillyawards.org/media/2013/10/Lilly-Awards-parchment-background.jpg");
+    background-size:250%;
+  background-position:center;
+  background-repeat: repeat;
+	width:80%;
+  height:auto%;
+  max-height:100%;
+	position:absolute;
+	top:0;
+	left:10%;
+	overflow-y:scroll;
+	margin:auto;
+	font-family: 'Nanum Brush Script', cursive;
+	font-size:2rem;
+	color:#f78b7d;
+	/*top:30%;
+	left:15%;*/
+	transition: "opacity 2s";
+	border-radius:15px;
+}
+
+
+.leftUpper table {
+  font-size: 2vw;
+  margin-right:2%;
+  margin-left: 5%;
+  margin-top: 2%;
+  align-self: center;
+  table-layout: fixed;
+  width:80%;
+}
+table th {
+  position: sticky;
+  top:0px;
+}
+.leftUpper table td, .leftUpper table th {
+  padding: 0;
+  
+}
+tr{height: 2em;}
+  
+
+  .leftUpper::-webkit-scrollbar{
+    width:10px;
+  }
+  .leftUpper ul {
+    padding-inline-start: 10px;
+  
+  }
+  #headlines{
+    height: 20vh;
+  }
+  
+   
+
+  
+  .list{
+    background-image:url("http://thelillyawards.org/media/2013/10/Lilly-Awards-parchment-background.jpg");
+    background-size:250%;
+    background-position:center;
+    background-repeat: repeat;
+    width:80%;
+    height:auto;
+    min-height: 19vw;
+    position:relative;
+    top:0%;
+    left:10%;
+    font-size: 2vw;
+    
+  }
+  .list ul {
+    padding-inline-start: 10px;
+    list-style-type: none;
+  }
+ .totalOrderValue {
+   display:flex;
+ }
+.totalOrderValue label{
+  float: left;
+}
+.totalOrderValue input{
+  float: right;
+  width:50%;
+}
+  
+  .topp{
+    background-image:url("http://thelillyawards.org/media/2013/10/Lilly-Awards-parchment-background.jpg");
+    background-size:150%;
+    background-position:center;
+    background-repeat: repeat;
+    width:90%;
+    height:80%;
+    position:absolute;
+    top:10%;
+    left:5%;
+    overflow-y: scroll;
+    
+    
+  }
+  .topp::-webkit-scrollbar{
+    width:10px;
+  }
+  .topp ul{
+    width:80%;
+    padding:5px;}
+  .topp ul li{
+    text-align:center;
+    margin:0;
+    font-size:2vw;
+  }
+  .sublist{
+    text-align:center;
+  }
+   .list h5, .leftUpper h5 {
+    text-align: center;
+    font-size:2vw;
+  }
+  .menuTable {
+    
+    height:auto;
+    flex-wrap: wrap;
+  }
+  .pizzaList{
+    align-items: center;
+
+  }
+ 
+
+  #finalorder {
+    display:none;
+  }
+  .opaque{
+    opacity: 1 !important;
+}
+#pText{
+  margin: 5px 0;
+ font-family: 'Nanum Brush Script', cursive;
+ font-size:7.5vw;
+ color:#f78b7d;
+ text-align:center;
+ margin:auto;
+ display:block;
+ vertical-align:middle;
+ opacity:0;
+ transition: opacity 1s ease-in;
+ 
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 1s ease-in;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}

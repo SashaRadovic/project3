@@ -1,0 +1,127 @@
+{%  extends "orders/base.html" %}
+{% block content  %}
+    <h1>Home Pizza Menu</h1>
+    <div id ="menuWrapper" class="container">
+        <div class="menuList">
+                <div class="menuListLocal">
+                    <table>
+        
+                        <th>Regular Pizza</th>
+                        <th>Small</th>
+                        <th>Big</th>
+                        <tr>
+                        {% for item in regular %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                        
+                        
+                            <td>${{ item.pricesmall }}</td>
+                            <td>${{ item.pricebig }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tr>
+                        
+                       
+                    </table>
+                </div>
+                <div class="menuListLocal">
+                    <table>
+        
+                        <th>Sicilian Pizza</th>
+                        <th>Small</th>
+                        <th>Big</th>
+                        <tr>
+                        {% for item in sicilian %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                        
+                        
+                            <td>${{ item.pricesmall }}</td>
+                            <td>${{ item.pricebig }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tr>
+                        
+                       
+                    </table>
+                </div>
+    </div>
+    <div class="menuList">
+        <table>
+            
+            <th>Toppings</th>
+            
+            {% for item in toppings %}
+            <tr>
+                <td>{{ item.name }}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+</div>
+<div class="menuList">
+    <table>
+        
+        <th>Dinner Platters</th>
+        <th>Small</th>
+        <th>Big</th>
+        <tr>
+        {% for item in dinner %}
+        <tr>
+            <td>{{ item.name }}</td>
+        
+        
+            <td>${{ item.pricesmall }}</td>
+            <td>${{ item.pricebig }}</td>
+        </tr>
+        {% endfor %}
+        </tr>
+        
+       
+    </table>
+</div>
+<div class="menuList">
+    <table>
+        
+        <th>Salads</th>
+        <th>Price</th>
+        
+        <tr>
+        {% for item in salads %}
+        <tr>
+            <td>{{ item.name }}</td>
+        
+        
+            <td>${{ item.price }}</td>
+            
+        </tr>
+        {% endfor %}
+        </tr>
+        
+       
+    </table>
+</div>
+<div class="menuList">
+    <table>
+        
+        <th>Subs</th>
+        <th>Small</th>
+        <th>Big</th>
+        <tr>
+        {% for item in subs %}
+        <tr>
+            <td>{{ item.name }}</td>
+        
+        
+            <td>${{ item.pricesmall }}</td>
+            <td>${{ item.pricebig }}</td>
+        </tr>
+        {% endfor %}
+        </tr>
+        
+       
+    </table>
+</div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,503 @@
+{%  extends "orders/base.html" %}
+{% block content  %}
+<div class="row" id="headlines">
+<div class="col-md-12" id ="rowUpper">
+    <p id="pText"></p>
+    </div>
+</div>
+<div class="row" id="blockContentWrapper">
+
+<!--<div class ="container menuTable">-->
+<div class="col-md-4">
+    <div class="menuList leftUpper hidden">
+        <div class ="pizzaList">
+            <table>
+                <div style="opacity:1">
+                <th class="main">Regular pizza</th>
+                <th>small</th>
+                <th>big</th>
+            </div>
+                {% for item in regular %} 
+    <tr>
+        <!--<h5>Regular Pizza</h5>-->
+       
+    <td>{{item.name}}</td>
+    <td>{{item.pricesmall}}<a href="#" onclick='addToList("Small Regular Pizza","{{item.name}}", "{{ item.pricesmall }}")'>+</a></td>
+    <td>{{item.pricebig}}<a href="#" onclick='addToList( "Big Regular Pizza","{{item.name}}", "{{ item.pricebig }}")'>+</a></td>
+    </tr>
+        {% endfor%}
+        <th>Sicilian pizza</th>
+        <th>small</th>
+        <th>big</th>
+        <!--<h5>Sicilian Pizza</h5>-->
+        {% for item in sicilian %}
+        <tr>
+    <td>{{item.name}}</td>
+    <td>{{item.pricesmall}}<a href="#" onclick='addToList("Small Sicilian Pizza","{{item.name}}", "{{ item.pricesmall }}")'>+</a></td>
+    <td>{{item.pricebig}}<a href="#" onclick='addToList("Big Sicilian Pizza","{{item.name}}", "{{ item.pricesmall }}")'>+</a></td>
+</tr>
+        {% endfor%}
+        <th>Pasta</th>
+        <th></th>
+        <th>price</th>
+        <!--<h5>Pasta</h5>-->
+        {% for item in pasta %}
+        <tr>
+    <td>{{item.name}}</td>
+    <td>{{item.pricesmall}}<a href="#" onclick='addToList("{{item.name}}")'></a></td>
+    <td>{{item.price}}<a href="#" onclick='addToList("{{item.name}}")'>+</a></td>
+</tr>
+        {% endfor%}
+
+    </ul>
+</table>
+
+
+    </div>
+    <div class="topp" style="display:none">
+    <ul style="list-style:none">
+        <h5>Please select Toppings</h5>
+        {% for item in toppings %}
+    <li >{{item.name}}<a class="toppings" href="#" onclick='addToListTopp("{{item.name}}"); style="visibility:hidden"'>&#x1F44C	</a></li>
+        {%endfor%}
+  
+    
+    </ul>
+    </div>
+    </div>
+
+    <div class="leftBottom menuList  hidden">
+    
+    </div>
+    <div class="rightUpper menuList  hidden">
+    </div>
+    <div class="rightBottom menuList hidden">
+    </div>
+</div>
+    <div class="col-md-5">
+        <div class="wrapper" >
+        <div class="containerAux">
+          <div class="aux"><div class="child" id ="ch1">
+            </div><div class="child" id ="ch2">
+            </div><div class="child" id ="ch3">
+            </div><div class="child" id ="ch4">
+            </div>	
+          </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+    <div class="list ">
+        <p class="orderTime">Order for:{{ user.username }}</p>
+
+
+    <form id ="orderForm" method="post" name="form">{% csrf_token %}
+            
+    <ul class="orderlist">
+        
+    </ul>
+    <div class="totalOrderValue">
+        <label for="total">Total: </label>
+        <input type="text" name="total" id="total">
+    </div>
+    
+
+
+    
+    <button id ="orderConfirm" onclick=orderConfirm1() type="button">Confirm</button)>
+        <button id ="orderSubmit" type="submit" onsubmit=showPost() style="display:none">Submit</button)>
+            <button id ="orderCancel" type="button" onsubmit="" style="display:none">Cancel</button)>
+        <input type="text" name="finalInput" id="finalInput" style="display:none">
+    </form>
+
+    <!--</div>-->
+    </div>
+</div>
+</div>
+    <script>
+window.onload=function(){
+	
+	setInterval(changeInnerText,6000);
+}
+
+        placement=[]
+        topp=[]
+
+
+function orderConfirm1(){
+ 
+ var final = document.querySelector('#finalInput')
+ 
+ document.querySelector('#orderConfirm').style.display="none"
+ document.querySelector('#orderSubmit').style.display="block"
+ document.querySelector('#orderCancel').style.display="block"
+ 
+
+var confirmList=document.querySelector('.orderlist').children
+	//confirmArray=Array.from(confirmList)
+	//confirmArray.forEach(function(index){var testing = confirmArray[index].firstChild.value
+	//var testing = confirmList[0].firstChild.value
+for(var i =0;i<confirmList.length;i++){
+console.log(confirmList[i])
+toppingsPlacement=[]
+var testing = confirmList[i].firstChild.value
+placement.push({[testing]:toppingsPlacement})
+console.log(testing)
+if(confirmList[i].lastChild.classList.contains('topping')){
+	var toppingsList=confirmList[i].children
+    console.log(toppingsList)
+	for(var j=0;j<toppingsList.length;j++){
+	if(toppingsList[j].classList.contains('topping')){
+	var toppings = toppingsList[j].lastChild.value
+	toppingsPlacement.push(toppings)
+	console.log(JSON.stringify(toppingsPlacement))}}
+	}
+
+console.log(JSON.stringify(placement)); 
+}
+
+ final.value=JSON.stringify(placement)
+ console.log(final.value)
+//})
+}
+
+    function click(e){
+        e.preventDefault()
+        var final=document.getElementById('finalorder')
+        final.value=JSON.stringify(placement)
+        document.getElementById('submitButton').style.display="none"
+        document.getElementById('submit').style.display="block"
+        
+    }
+    val=0
+
+
+    function addToList(type,el,price){
+        let div = document.createElement('div')
+        var li =document.createElement('input')
+        var a =document.createElement('a')
+        let x=document.getElementsByClassName('toppings')
+                console.log(x)
+        Array.prototype.forEach.call(x, function(item){
+            item.style.visibility="visible"
+        })
+        div.style.marginTop="1em"
+        a.innerText =String.fromCodePoint(0x1F355)
+        console.log(el[0])
+        a.href="#"
+        a.style.cursor="pointer"
+        li.value=el+" "+type+" "+price  /*"<a href=\"#\" onclick=gone(this)>-</a>"*/
+        var liTopp=document.querySelector('.topp')
+        if(el[0] !="C" && el[0]!="B"){
+        liTopp.style.display="block"}
+        document.querySelector('.orderlist').appendChild(div)
+        li.style.width="90%"
+        
+        div.appendChild(li)
+        div.appendChild(a)
+        name=el
+       
+        var tot =document.querySelector('#total')
+       val-=  -Math.round(price*100)/100
+       tot.value=val.toFixed(2)
+	   
+       
+        //placement.push([{"product":name,'additions':topp,'type':type,'price': price}])
+        console.log(placement)
+       
+        a.style.position="absolute"
+	    a.style.right="2%"
+        a.onclick = gone
+        if(el[0] !="C" && el[0]!="B"){
+            document.querySelector('.pizzaList').style.visibility="hidden"}
+     
+    }
+
+
+    function visibleMenu(el){
+	 var arr=document.querySelectorAll('.menuList')
+	 console.log(arr)
+	arr.forEach(my_function)
+	
+	function  my_function(item){
+	console.log(item)
+	item.classList.remove('visible')
+	item.classList.add('hidden')}
+	console.log(el.classList)
+	el.classList.remove('hidden')
+	el.classList.add('visible')
+	
+	menu.classList.toggle='is-active'
+	menu.style.visibility="visible"
+	menu.style.opacity="1"
+	menu.style.transition="all 2s";
+	
+	}
+
+
+    function round(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
+
+    function gone(){
+        console.log()
+        let x=document.getElementsByClassName('toppings')
+                console.log(x)
+        Array.prototype.forEach.call(x, function(item){
+            item.style.visibility="visible"
+        })
+                var liTopp=document.querySelector('.topp')
+        liTopp.style.display="none"
+        
+        var tot =document.querySelector('#total')
+        let inputValue=this.parentNode.firstChild.value
+        let price = inputValue.slice(inputValue.length -5)
+        document.querySelector('.pizzaList').style.visibility="visible"
+        this.parentNode.parentNode.removeChild(this.parentNode)
+       
+        val-=  Math.round(price*100)/100
+        tot.value=val.toFixed(2)
+
+        
+    }
+    
+    function goneTopp(){
+       
+        let x=document.getElementsByClassName('toppings')
+         //       console.log(x)
+        
+                var liTopp=document.querySelector('.topp')
+        
+        if(!this.parentNode.parentNode.nextSibling){
+        this.parentNode.parentNode.removeChild(this.parentNode)
+        liTopp.style.display="block"
+        document.querySelector('.pizzaList').style.visibility="hidden"
+        }
+        console.log(this)
+    }
+    
+    function addToListTopp(el){
+        
+        
+        var di =document.querySelector('.orderlist').lastChild
+        var li = di.getElementsByTagName('input')[0]
+        console.log(li)
+        console.log(di)
+        
+        console.log(li.value)
+        console.log(li.value[0])
+        console.log(di.childElementCount)
+
+        let tp	= document.createElement('input')
+        tp.name="topping"
+        var a =document.createElement('a')
+        let div = document.createElement('div')
+        div.classList.add('topping')
+        a.innerText = String.fromCodePoint(0x1F355)
+        tp.value =el
+        topp.push(el)
+        tp.className="sublist"
+        tp.style.width="80%"
+        a.style.position="absolute"
+	    a.style.right="2%"
+       
+        a.onclick = goneTopp
+        
+        
+        a.href="#"
+
+
+        di.appendChild(div)
+        div.appendChild(a)
+        div.appendChild(tp)
+
+        if (li.value[0]=="C"){var toppNumber=0}
+        else if(li.value[0]=="S"){var toppNumber=4}
+        else{
+        var toppNumber=li.value[0]}
+        if (di.childElementCount-2 <=toppNumber){
+            if(di.childElementCount-2 ==toppNumber){
+                document.querySelector('.pizzaList').style.visibility="visible"
+                var liTopp=document.querySelector('.topp')
+                liTopp.style.display="none"
+                }
+            
+            else{var liTopp=document.querySelector('.topp')
+                liTopp.style.display="block"
+                }
+        
+
+
+
+
+       
+
+
+
+        }
+    }
+
+   
+
+
+
+    
+
+
+    
+    var quotes=['You can order  our meals online', 'register and leave your adress', 'Please visit our Orders page to continue']
+   
+    function changeInnerText(){
+	
+	
+    var url=quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('pText').classList.add('opaque')
+      setTimeout(function(){document.getElementById('pText').classList.remove('opaque')}, 4000)
+      document.getElementById('pText').innerHTML=url
+      
+  
+      
+      }
+
+
+    function zip(){
+        
+        this.style.transformOrigin="50% 50%";
+        if(this.id=='ch1'){this.style.transform ="translate(-10px,  -10px)";}
+        else if(this.id=='ch2'){this.style.transform ="translate(10px,  -10px)";}
+        else if(this.id=='ch3'){this.style.transform ="translate(-10px,  10px)";}
+        else{this.style.transform ="translate(10px,  10px)";}
+        
+        this.style.transition="all 1s";
+        
+    }
+    function zipOut(){
+        this.style.transformOrigin="50% 50%";
+        this.style.transform ="translate(0px, 0px)";
+        this.style.transition="all 1s";
+        
+    }
+    
+    //function visibleMenu(){
+      //  var json={'name':1}
+        //window.sessionStorage.setItem('json', JSON.stringify(json))
+        //menu.style.display="block"
+        //menu.style.transition="all 1s";
+   // }
+
+   function visibleMenu(el){
+	 var arr=document.querySelectorAll('.menuList')
+	 console.log(arr)
+	arr.forEach(my_function)
+	
+	function  my_function(item){
+	console.log(item)
+	item.classList.remove('visible')
+	item.classList.add('hidden')}
+	console.log(el.classList)
+	el.classList.remove('hidden')
+	el.classList.add('visible')
+	
+	//el.classList.toggle='is-active'
+	//el.style.visibility="visible"
+	//el.style.opacity="1"
+	//el.style.transition="all 2s";
+	
+	}
+
+
+
+
+     var menu1 = document.querySelector(".leftUpper")
+     menu1.style.zIndex="3"
+     var ch1 = document.querySelector('#ch1')
+     var text1 =document.createElement('p')
+     text1.innerHTML="Pizza";
+     text1.style.verticalAlign="middle"
+     text1.style.margin="0 0 0 0"
+     text1.style.width="100%"
+     text1.style.height="auto"
+     ch1.appendChild(text1);
+     text1.style.position="absolute"
+     text1.style.textOverflow="ellipsis"
+     text1.style.top="40%"
+     text1.style.left="15%"
+     text1.style.zIndex="2"
+     text1.style.margin="0"
+     
+     
+     ch1.style.backgroundPosition="0% 0%"
+     ch1.onmouseover=zip;
+     ch1.onclick=visibleMenu.bind(this, menu1);
+     ch1.onmouseout=zipOut;
+     ch1.style.borderRadius="100%  0 0 0 "
+     ch1.style.boxShadow= "0px 0px 5px 5px white inset";
+    
+     
+     var ch2 = document.querySelector('#ch2')
+     var menu2 = document.querySelector(".rightUpper")
+     menu2.style.zIndex="-2"
+     ch2.style.backgroundPosition="100% 0"
+     ch2.onmouseover=zip;
+     ch2.onmouseout=zipOut;
+     ch2.onclick=visibleMenu.bind(this, menu2);
+     ch2.style.borderRadius="0  100% 0 0 "
+     ch2.style.boxShadow= "0px 0px 5px 5px white inset";
+     
+     var text2 =document.createElement('p')
+     ch2.appendChild(text2);
+     text2.innerHTML="Dinner <br>Platters";
+     text2.style.position="absolute"
+     text2.style.textOverflow="ellipsis"
+     text2.style.top="40%"
+     text2.style.left="5%"
+     text2.style.zIndex="2"
+     text2.style.margin="0"
+     
+     
+     
+     
+     var ch3 = document.querySelector('#ch3')
+     var menu3 = document.querySelector(".leftBottom")
+     menu3.style.zIndex="-3"
+     ch3.style.backgroundPosition="0% 100% "
+     ch3.onmouseover=zip;
+     ch3.onmouseout=zipOut;
+     ch3.onclick=visibleMenu.bind(this, menu3);
+     ch3.style.borderRadius="0  0  0 100%"
+     ch3.style.boxShadow= "0px 0px 5px 5px white inset";
+     
+     var text3 =document.createElement('p')
+     ch3.appendChild(text3);
+     text3.innerHTML="Salads and </br>Pasta";
+     text3.style.position="absolute"
+     text3.style.textOverflow="ellipsis"
+     text3.style.top="20%"
+     text3.style.left="15%"
+     text3.style.zIndex="2"
+     text3.style.margin="0"
+    
+    
+    
+     var ch4 = document.querySelector('#ch4')
+     var menu4 = document.querySelector(".rightBottom")
+     menu4.style.zIndex="-4"
+     ch4.style.backgroundPosition="100% 100%"
+     ch4.onmouseover=zip;
+     ch4.onmouseout=zipOut;
+     ch4.onclick=visibleMenu.bind(this, menu3);
+     ch4.style.borderRadius="0  0 100% 0  "
+     ch4.style.boxShadow= "0px 0px 5px 5px white inset";
+    
+     var text4 =document.createElement('p')
+     ch4.appendChild(text4);
+     text4.innerHTML="Subs";
+     text4.style.position="absolute"
+     text4.style.textOverflow="ellipsis"
+     text4.style.top="20%"
+     text4.style.left="5%"
+     text4.style.zIndex="2"
+     text4.style.margin="0"
+    </script>
+{% endblock content %}
