@@ -1,6 +1,6 @@
 {%  extends "orders/base.html" %}
 {% block content  %}
-    <h1>Home Pizza Menu</h1>
+  <!-- <h1>Home Pizza Menu</h1>
     <div id ="menuWrapper" class="container">
         <div class="menuList">
                 <div class="menuListLocal">
@@ -123,5 +123,33 @@
     </table>
 </div>
 
-</div>
+</div>-->
+
+<div class="row" id="headlines">
+    <div class="col-md-12" id ="rowUpper">
+        <p id="pText">>Welcome to our home page!</p>
+        </div>
+    </div>
+    <div class="row" id="blockContentWrapper">
+    
+    <!--<div class ="container menuTable">-->
+  
+        
+    
+        <div class="col-md-12">
+            <div class="wrapper" >
+            <div class="containerAux">
+              <div class="aux"><div  class="child" id ="ch1">
+                </div><div href="{% url 'login' %}" class="child" id ="ch2">
+                </div><div href="{% url 'orders-order' %}" class="child" id ="ch3">
+                </div><div href="{% url 'orders-about' %}" class="child" id ="ch4">
+                </div>	
+              </div>
+              </div>
+            </div>
+            </div>
+            
+    </div>
+    {% load static %}
+<script src="{% static 'index.js' %}"></script>
 {% endblock content %}

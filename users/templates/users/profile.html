@@ -20,5 +20,26 @@
             <button class ="btn btn-outline-info" type ="submit">Update</button>
         </div>
     </form>
+    <div class="userOrders">
+        <fieldset class ="form-group">
+            <legend class ="border-bottom mb-4">Orders Info</legend>
+      {% for item in userOrders %}
+      <p id="profileOrderHead">{{ item.time }},{{ item.user }}</p>
+          {% for i in item.placement %}
+           
+            {% for key, value in i.items %}
+            <p>{{key}}</p>
+            {% for v in value %}
+              <p>Topp: {{ v }}</p>
+              {% endfor %}
+                {%endfor%}
+            
+           
+          {% endfor %}
+      {% endfor %}
+    </fieldset>
     </div>
+    
+    </div>
+    
 {% endblock content %}

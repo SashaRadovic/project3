@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from orders.models import Order
 from .forms import UserRegistrationForm, UserUpdateForm, ProfilUpdateForm
 
 
@@ -33,10 +34,12 @@ def profile(request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfilUpdateForm(instance=request.user.profile)
 
-
+    userOrders = Order.objects.filter(user=request.user)
 
     context ={
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'userOrders':userOrders,
+        
     }
     return render(request, 'users/profile.html', context)

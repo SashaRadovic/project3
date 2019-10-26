@@ -129,4 +129,5 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'orders-index'
+LOGOUT_REDIRECT_URL = 'orders-index'
 LOGIN_URL='login'

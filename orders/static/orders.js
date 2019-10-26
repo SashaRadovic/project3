@@ -1,243 +1,25 @@
-{%  extends "orders/base.html" %}
-{% block content  %}
-
-<div class="row" id="headlines">
-<div class="col-md-12" id ="rowUpper">
-    <p id="pText">Welcome to our orders page!</p>
-    </div>
-</div>
-<div class="row" id="blockContentWrapper">
-
-<!--<div class ="container menuTable">-->
-<div class="col-md-4">
-    <div class="menuList leftUpper hidden">
-        <div class ="pizzaList">
-            <table>
-                <div style="opacity:1">
-                <th class="main">Regular pizza</th>
-                <th></th>
-                <th>small</th>
-                <th>big</th>
-            </div>
-                {% for item in regular %} 
-    <tr>
-        <!--<h5>Regular Pizza</h5>-->
-       
-    <td>{{item.name}}</td>
-    <td></td>
-    <td>{{item.pricesmall}}<a href="#" title="Add to order list" onclick='addToList("{{item.name}}"+" "+  "Small Regular Pizza"+ " "+  "{{ item.pricesmall }}")'>+</a></td>
-    <td>{{item.pricebig}}<a href="#" title="Add to order list" onclick='addToList( "{{item.name}}"+" "+  "Big Regular Pizza"+" "+  "{{ item.pricebig }}")'>+</a></td>
-    </tr>
-        {% endfor%}
-        <th>Sicilian pizza</th>
-        <th></th>
-        <th>small</th>
-        <th>big</th>
-        <!--<h5>Sicilian Pizza</h5>-->
-        {% for item in sicilian %}
-        <tr>
-    <td>{{item.name}}</td>
-    <td></td>
-    <td>{{item.pricesmall}}<a href="#" title="Add to order list" onclick='addToList("{{item.name}}"+" "+"Small Sicilian Pizza"+" "+ "{{ item.pricesmall }}")'>+</a></td>
-    <td>{{item.pricebig}}<a href="#" title="Add to order list" onclick='addToList("{{item.name}}"+" "+"Big Sicilian Pizza"+" "+ "{{ item.pricesmall }}")'>+</a></td>
-</tr>
-        {% endfor%}
-       
-        <!--<h5>Pasta</h5>-->
-       
-
-    </ul>
-</table>
-
-
-    </div>
-    <div class="topp" style="display:none">
-    <ul style="list-style:none">
-        <h5>Please select Toppings</h5>
-        {% for item in toppings %}
-    <li >{{item.name}}<a class="toppings" title="Add to order list" href="#" onclick='addToListTopp("{{item.name}}"); style="visibility:hidden"'>+</a></li>
-        {%endfor%}
-  
-    
-    </ul>
-    </div>
-    </div>
-
-    <div class="leftBottom menuList  hidden">
-        <div class ="saladList">
-            <table>
-                <div style="opacity:1">
-                <th class="main">Salads</th>
-                <th></th>
-                <th>Price</th>
-                
-            </div>
-                {% for item in salads %} 
-    <tr>
-        <!--<h5>Salads</h5>-->
-       
-    <td>{{item.name}}</td>
-    <td></td>
-    <td>{{item.price}}<a href="#" title="Add to order list" onclick='addToList( "{{item.name}}"+" "+"Regular"+" "+ "{{ item.price }}")'>+</a></td>
-    
-    </tr>
-        {% endfor%}
-        
-        
-        <!--<h5>Pasta</h5>-->
-        
-        <th>Pasta</th>
-        <th></th>
-        <th>price</th>
-        
-        {% for item in pasta %}
-        <tr>
-    <td>{{item.name}}</td>
-    <td></td>
-    <td>{{item.price}}<a href="#" title="Add to order list" onclick='addToList( "{{item.name}}"+" "+"Regular"+" "+ "{{ item.price }}")'>+</a></td>
-</tr>
-        {% endfor%}
-
-    </ul>
-</table>
-
-
-    </div>
-    </div>
-
-
-
-    <div class="rightUpper menuList  hidden">
-            <div class ="dinnerList">
-                    <table>
-                        <div style="opacity:1">
-                        <th class="main">Dinner Platters</th>
-                        <th></th>
-                        <th>small</th>
-                        <th>big</th>
-                    </div>
-                        {% for item in dinner %} 
-            <tr>
-                <!--<h5>Regular Pizza</h5>-->
-               
-            <td>{{item.name}}</td>
-            <td></td>
-            <td>{{item.pricesmall}}<a href="#" title="Add to order list" onclick='addToList("{{item.name}}"+" "+"Small"+" "+ "{{ item.pricesmall }}")'>+</a></td>
-            <td>{{item.pricebig}}<a href="#" title="Add to order list" onclick='addToList( "{{item.name}}"+" "+"Big"+" "+ "{{ item.pricebig }}")'>+</a></td>
-            </tr>
-                {% endfor%}
-               
-            
-        </table>
-        
-        
-            </div>
-    </div>
-
-
-
-    <div class="rightBottom menuList hidden">
-            <div class ="subsList">
-                    <table>
-                        <div style="opacity:1">
-                        <th class="main">Subs</th>
-                        <th></th>
-                        <th>small</th>
-                        <th>big</th>
-                    </div>
-                        {% for item in subs %} 
-            <tr>
-                <!--<h5>Regular Pizza</h5>-->
-               
-            <td>{{item.name}}</td>
-            <td></td>
-            {% if  item.pricesmall  == 0.00%}
-                <td></td>
-                {% else %}
-            
-                <td>{{item.pricesmall}}<a href="#" title="Add to order list" onclick='addToList("{{item.name}}"+" "+ "Subs small"+" "+ "{{ item.pricesmall }}")'>+</a></td>
-            {% endif %}
-                <td>{{item.pricebig}}<a href="#" title="Add to order list" onclick='addToList( "{{item.name}}"+" "+ "Subs big"+" "+ "{{ item.pricebig }}")'>+</a></td>
-            </tr>
-                {% endfor%}
-                
-           
-        </table>
-        
-        
-            </div>
-
-    </div>
-
-
-
-</div>
-    <div class="col-md-5">
-        <div class="wrapper" >
-        <div class="containerAux">
-          <div class="aux"><div class="child" id ="ch1">
-            </div><div class="child" id ="ch2">
-            </div><div class="child" id ="ch3">
-            </div><div class="child" id ="ch4">
-            </div>	
-          </div>
-          </div>
-        </div>
-        </div>
-        <div class="col-md-3">
-    <div class="list " id ="orderListDiv" >
-        <input id ="orderListInput" type="text" style="display:none" value="{{user.username}}">
-        <p class="orderTime">Order for:{{ user.username }}</p>
-
-
-    <form id ="orderForm" method="post" name="form">{% csrf_token %}
-            
-    <ul class="orderlist">
-        
-    </ul>
-    <div class="totalOrderValue">
-        <label for="total">Total: </label>
-        <input type="text" name="total" id="total">
-    </div>
-    
-
-
-    
-    <button id ="orderConfirm" onclick=orderConfirm1() type="button" style="display:none">Confirm</button)>
-   
-        <button id ="orderSubmit" type="submit" onclick='showPost()' style="display:none"><a title="Submit Order">✔️</a></button)>
-            <button id ="orderCancel" type="button" onclick="cancelOrder()" style="display:none"><a title="Cancel Order">❌</a></button)>
-       
-        <input type="text" name="finalInput" id="finalInput" style="display:none">
-    </form>
-
-    <!--</div>-->
-    </div>
-</div>
-</div>
-{% load static %}
-<script src="{% static 'orders.js' %}"></script>
-  <!--  <script>
 window.onload=function(){
 	
-	setInterval(changeInnerText,6000);
+	
 
     lUser = document.querySelector('#orderListInput').value
     console.log(lUser)
+    document.querySelector('#shoppingCart').style.display="none"
     if(window.localStorage.getItem(lUser)!=undefined){
+        document.querySelector('#shoppingCart').style.display="block"
 	//alert(lUser)
 	let string=window.localStorage.getItem(lUser)
     console.log(string)
 	let array= JSON.parse(string)
 	for (var a=0;a<array.length;a++){
 	var inputKart=Object.keys(array[a])
-	console.log(inputKart)
+	
 	for(var i =0;i<inputKart.length;i++){
 		addToList(inputKart[i])
 		if(array[0][inputKart[i]] !=[]){
 		for (var j=0;j<array[a][inputKart[i]].length;j++){
 			let topp =array[a][inputKart[i]]
-			console.log(topp)
+			
 			addToListTopp(topp[j])
 		}
 		}
@@ -246,7 +28,7 @@ window.onload=function(){
 }
 
 
-
+setInterval(changeInnerText,6000);
 
 
 }
@@ -287,12 +69,13 @@ console.log(JSON.stringify(placement));
 
  final.value=JSON.stringify(placement)
  window.localStorage.setItem(lUser, final.value)
- console.log(final.value)
+ 
 
 }
 
 function cancelOrder(){
     window.localStorage.clear()
+    document.querySelector('#shoppingCart').style.display="none"
     placement=[]
     topp=[]
     document.querySelector('.orderlist').innerHTML=""
@@ -306,8 +89,9 @@ topp=[]
 window.localStorage.clear()
 //document.querySelector('.orderlist').innerHTML=""
 var final = document.querySelector('#finalInput');
+document.querySelector('#shoppingCart').style.display="none"
 
-console.log(final.value)
+
 
 }
     function click(e){
@@ -362,6 +146,7 @@ console.log(final.value)
         if(el.slice(0, 4) !="Chee"&& el.indexOf('Pizza')!==-1 ){
             document.querySelector('.pizzaList').style.visibility="hidden"}
             document.querySelector('#orderConfirm').style.display="block"
+            document.querySelector('#shoppingCart').style.display="block"
      
     }
 
@@ -472,23 +257,10 @@ console.log(final.value)
                 }
         
 
-
-
-
-       
-
-
-
         }
     }
 
    
-
-
-
-    
-
-
     
     var quotes=['You can order  our meals online', 'register and leave your adress', 'Please visit our Orders page to continue']
    
@@ -596,10 +368,10 @@ console.log(final.value)
      
      var text3 =document.createElement('p')
      ch3.appendChild(text3);
-     text3.innerHTML="Salads and </br>Pasta";
+     text3.innerHTML="Salads &</br>Pasta";
      text3.style.position="absolute"
      text3.style.textOverflow="ellipsis"
-     text3.style.top="10%"
+     text3.style.top="5%"
      text3.style.left="15%"
      text3.style.zIndex="2"
      text3.style.margin="0"
@@ -646,5 +418,3 @@ function changeBackground(n1, n2, n3, n4){
 	n4.style.backgroundImage = 'url('+url+')'
 },5000);}
 changeBackground(ch1, ch2, ch3, ch4)
-    </script>-->
-{% endblock content %}

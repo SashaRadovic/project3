@@ -1,4 +1,95 @@
 {%  extends "orders/base.html" %}
 {% block content  %}
-    <h1>About page test</h1>
+<div class="row" id="headlines">
+    <div class="col-md-12" id ="rowUpper">
+        <p id="pText"></p>
+        </div>
+    </div>
+    <div class="row" id="blockContentWrapper">
+
+
+      <div class="col-md-6">
+      <div class="menuList rightUpper visible">
+          <div class ="pizzaList">
+              <h4>Sicilian vs. Regular</h4>
+              <h5>Sicilian Pizza</h5>
+              <p>Our Sicilian pizza is a deep-dish or thick-crust pizza. We sell them in a 9-slice or a 15-slice size.</p>
+  <ul>
+    <li>The 9-slice size is 16" x 16" and will feed anywhere from 3 to 5 people.</li>
+    <li>The 15-slice size is 28" x 16", comes in 2 large pizza boxes and can feed 6 to 9 people.</li>
+  </ul>
+  <h5>Regular Pizza</h5>
+  <p>Our Regular pizza is a thin-crust or Neapolitan pizza. They come in 2 sizes: small (12" in diameter) and large (16" in diameter). The small is suitable for 1 to 2 people while the large feeds 2 to 4 people.</p>
+  <hr>
+  <p>We can make any of our pizzas in about 10 to 15 minutes, and they can be eaten in our dining room or taken out.</p>
+      </div>
+      
+      </div>
+  
+      <div class="leftBottom menuList  hidden">
+          <div class ="saladList">
+              <h4>Location and Directions</h4>
+              <ul>
+                <li>Pinocchio's is located on Winthrop street right near the corner of JFK Street next to Berk's shoes.</li>
+                <li>We are 2 blocks from the Harvard Square T stop.</li>
+                <li>Do not park across the street from us! It is a tow zone!</li>
+              </ul>
+              <img src="http://www.pinocchiospizza.net/images/map.gif" alt="">
+  
+      </div>
+      </div>
+  
+  
+  
+      <div class="rightUpper menuList  hidden">
+              <div class ="dinnerList">
+                      
+          
+          
+              </div>
+      </div>
+  
+  
+  
+      <div class="rightBottom menuList hidden">
+              <div class ="subsList">
+                <h4>Contact Details</h4>
+                <p>Our phone numbers are 617-876-4897 or 617-876-0012</p>
+                <p>Our fax number is 617-661-6188</p>
+                <p>And Instagram @pinocchiospizza1</p>
+                <p></p>
+                <p>Our mailing address is:</p>
+                <p></p>
+                <p>Pinocchio's Pizza</br>
+                    74 Winthrop Street</br>
+                    Cambridge, MA 02138</p>
+                  <p>If you have any questions or comments or would like to get on our email list you can email us at pinocchiospizza1@gmail.com</p>
+          
+              </div>
+  
+      </div>
+  
+  
+  
+  </div>
+    <!--<div class ="container menuTable">-->
+  
+        
+    
+        <div class="col-md-6">
+            <div class="wrapper" >
+            <div class="containerAux">
+              <div class="aux"><div  class="child" id ="ch1">
+                </div><div  class="child" id ="ch2">
+                </div><div  class="child" id ="ch3">
+                </div><div  class="child" id ="ch4">
+                </div>	
+              </div>
+              </div>
+            </div>
+            </div>
+            
+    </div>
+    {% load static %}
+<script src="{% static 'about.js' %}"></script>
 {% endblock content %}
