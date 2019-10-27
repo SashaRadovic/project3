@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from django.core.servers.basehttp import WSGIServer
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -72,7 +73,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pizza.wsgi.application'
-
+WSGIServer.request_queue_size = 15
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -131,3 +132,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'orders-index'
 LOGOUT_REDIRECT_URL = 'orders-index'
 LOGIN_URL='login'
+

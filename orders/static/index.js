@@ -9,7 +9,7 @@ lUser = document.querySelector('#log2').innerHTML
 if(window.localStorage.getItem(lUser)!=undefined){
     document.querySelector('#shoppingCart').style.display="block"}
     
-    var quotes=['You can order  our meals online', 'register and leave your adress', 'Please visit our Orders page to continue']
+    var quotes=['You can order  our meals online', 'register to access menu', 'Please visit our Orders page to continue', 'Follow us on Instagram', 'New visitor? Register here', 'You can customize your Profile']
    
     function changeInnerText(){
 	
@@ -56,7 +56,7 @@ if(window.localStorage.getItem(lUser)!=undefined){
      text1.style.position="absolute"
      text1.style.textOverflow="ellipsis"
      text1.style.top="40%"
-     text1.style.left="15%"
+     text1.style.left="5%"
      text1.style.zIndex="2"
      text1.style.margin="0"
      
@@ -132,14 +132,38 @@ if(window.localStorage.getItem(lUser)!=undefined){
      text4.style.zIndex="2"
      text4.style.margin="0"
 
+
+     //['../media/gifs/7023.gif',
+    // '../media/gifs/f6.gif',
+     //'../media/gifs/Fem.gif',
+     //'../media/gifs/giphy.gif',
+     //'../media/gifs/mushrooms.gif',
+     //'../media/gifs/dough.gif',
+     //'../media/gifs/pizza.gif',
+     //'../media/gifs/pizzadough.gif',
+     //'../media/gifs/salad.gif',
+     //'../media/gifs/source.gif',
+     //'../media/gifs/tenor.gif',
+     //'../media/gifs/TU7.gif',]
      const images=[
-"https://media1.tenor.com/images/ce4476d7267ab4fda6371b5def13b02a/tenor.gif?itemid=7255450",
+        
+        "https://media1.tenor.com/images/ce4476d7267ab4fda6371b5def13b02a/tenor.gif?itemid=7255450",
 
 
-"https://i.makeagif.com/media/1-26-2016/TU7-bI.gif",
-"https://media1.tenor.com/images/09c376c8f04037475dde155683ccce9e/tenor.gif?itemid=12756381",
-"https://media.giphy.com/media/eeYtwiYHARla8/giphy.gif",
-"https://media0.giphy.com/media/Q8l3aVDWxDHHi/source.gif"
+        "https://i.makeagif.com/media/1-26-2016/TU7-bI.gif",
+        "https://media1.tenor.com/images/09c376c8f04037475dde155683ccce9e/tenor.gif?itemid=12756381",
+        "https://media.giphy.com/media/eeYtwiYHARla8/giphy.gif",
+        "https://media0.giphy.com/media/Q8l3aVDWxDHHi/source.gif",
+        "https://media.giphy.com/media/8Spvj8twYKdy/giphy.gif",
+        "https://media1.tenor.com/images/0f2d14b3f45e15321ae890fb52f3368f/tenor.gif?itemid=7255424",
+        "http://cdn.firstwefeast.com/assets/2015/02/7023.gif",
+        "https://images.squarespace-cdn.com/content/v1/5665f68805f8e2636513fe83/1456199378518-4236CIC50S73NCQLT89V/ke17ZwdGBToddI8pDm48kDrhhyvDpE5wTivfWmeXbClZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwwwgbrhBcqQvfweMHrFmLaAUNk-IumIXddVge6uKYx3SzjeTwXZX8Qna9Y4VPhkto/AB+slicing+mushrooms.gif",
+        "https://media.giphy.com/media/oS2lkrdaq3a3m/giphy.gif",
+        "https://media1.tenor.com/images/9a73533bd2d0912ebd73dcfed29dc260/tenor.gif?itemid=13905728",
+        "https://media3.giphy.com/media/sdQ3nOAboMc0M/source.gif"
+
+   
+   
 ]
 function about(){
     location.href='about/';
@@ -169,8 +193,12 @@ function changeBackground(n1, n2, n3, n4){
 	setInterval(function(){
   var url=images[Math.floor(Math.random() * images.length)];
     n1.style.backgroundImage = 'url('+url+')'
-	n2.style.backgroundImage = 'url('+url+')'
-	n3.style.backgroundImage = 'url('+url+')'
-	n4.style.backgroundImage = 'url('+url+')'
+    n1.style.transition ='all 1s'
+    n2.style.backgroundImage = 'url('+url+')'
+    n2.style.transition ='all 1s'
+    n3.style.backgroundImage = 'url('+url+')'
+    n3.style.transition ='all 1s'
+    n4.style.backgroundImage = 'url('+url+')'
+    n4.style.transition ='all 1s'
 },5000);}
 changeBackground(ch1, ch2, ch3, ch4)

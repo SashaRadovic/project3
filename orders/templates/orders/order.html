@@ -53,7 +53,8 @@
     </div>
     <div class="topp" style="display:none">
     <ul style="list-style:none">
-        <h5>Please select Toppings</h5>
+        <input  id="hh1" type="text" style="display:none">
+        <h5 >Please select Ingridients</h5>
         {% for item in toppings %}
     <li >{{item.name}}<a class="toppings" title="Add to order list" href="#" onclick='addToListTopp("{{item.name}}"); style="visibility:hidden"'>+</a></li>
         {%endfor%}
@@ -203,7 +204,7 @@
 
 
     
-    <button id ="orderConfirm" onclick=orderConfirm1() type="button" style="display:none">Confirm</button)>
+    <button id ="orderConfirm" onclick=orderConfirm1() type="button" style="display:none">Add to Cart</button)>
    
         <button id ="orderSubmit" type="submit" onclick='showPost()' style="display:none"><a title="Submit Order">✔️</a></button)>
             <button id ="orderCancel" type="button" onclick="cancelOrder()" style="display:none"><a title="Cancel Order">❌</a></button)>
