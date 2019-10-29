@@ -189,16 +189,20 @@ function profile(){
     }
 }
 function changeBackground(n1, n2, n3, n4){
-	
+	var im = document.querySelector('#preloadIMG')
+    
 	setInterval(function(){
-  var url=images[Math.floor(Math.random() * images.length)];
-    n1.style.backgroundImage = 'url('+url+')'
-    n1.style.transition ='all 1s'
-    n2.style.backgroundImage = 'url('+url+')'
-    n2.style.transition ='all 1s'
-    n3.style.backgroundImage = 'url('+url+')'
-    n3.style.transition ='all 1s'
-    n4.style.backgroundImage = 'url('+url+')'
-    n4.style.transition ='all 1s'
+  var urlIMG=images[Math.floor(Math.random() * images.length)];
+    im.src=urlIMG
+    im.onload=function(){
+ 
+    n1.style.backgroundImage = 'url('+this.src+')'
+    n1.style.transition ='all 2s'
+    n2.style.backgroundImage = 'url('+this.src+')'
+    n2.style.transition ='all 2s'
+    n3.style.backgroundImage = 'url('+this.src+')'
+    n3.style.transition ='all 2s'
+    n4.style.backgroundImage = 'url('+this.src+')'
+    n4.style.transition ='all 2s'}
 },5000);}
 changeBackground(ch1, ch2, ch3, ch4)
